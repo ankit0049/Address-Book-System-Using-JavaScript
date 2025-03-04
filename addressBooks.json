@@ -1,16 +1,5 @@
 {
-  "Ankit-Personal": [
-    {
-      "firstName": "Ankit",
-      "lastName": "Rajput",
-      "address": "121 Sec-A Bhopal",
-      "city": "Bhopal",
-      "state": "Madhyapradesh",
-      "zip": "271203",
-      "phone": "9770543210",
-      "email": "ankit.rajput@example.com"
-    }
-  ],
+  "Ankit-Personal": [],
   "Ankit-Work": [
     {
       "firstName": "Abhishek",
