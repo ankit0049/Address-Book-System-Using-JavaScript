@@ -284,7 +284,18 @@ class AddressBook {
     console.log("Contact Count by City:", cityCount);
     console.log("Contact Count by State:", stateCount);
     console.log(`Total contacts found: ${results.length}`);
-  }
+  } 
+  
+  // sortByName method to sort the contacts by name
+  sortByName() {
+    Object.keys(this.addressBooks).forEach(bookName => {
+        this.addressBooks[bookName].sort((a, b) => 
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+        );
+    });
+
+    console.log("Address book sorted by name:", this.addressBooks);
+}
   
   
 }
@@ -326,4 +337,6 @@ addressBookApp.editContact("Ankit-Personal", "Ankit", "Rajput", {
 addressBookApp.deleteContact("Ankit-Personal", "Ankit", "Rajput");
 addressBookApp.countContacts("Ankit-Work"); 
 
-addressBookApp.searchByCityOrState("Bhopal");
+addressBookApp.searchByCityOrState("Bhopal"); 
+
+addressBookApp.sortByName();
