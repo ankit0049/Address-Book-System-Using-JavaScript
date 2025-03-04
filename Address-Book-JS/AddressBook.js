@@ -219,7 +219,19 @@ class AddressBook {
       this.saveAddressBooks();
       console.log(`Contact '${firstName} ${lastName}' deleted successfully!`);
     }
-  }
+  } 
+  // countContacts method to count the contacts in the address book
+  countContacts(bookName) {
+    if (!this.addressBooks[bookName]) {
+        console.log(`Address Book '${bookName}' does not exist.`);
+        return 0;
+    }
+
+    // Use reduce function to count the contacts
+    const contactCount = this.addressBooks[bookName].reduce((count) => count + 1, 0);
+    console.log(`Total contacts in '${bookName}': ${contactCount}`);
+    return contactCount;
+}
 }
 
 // Example Usage to create an address book and add a contact
@@ -257,4 +269,5 @@ addressBookApp.editContact("Ankit-Personal", "Ankit", "Rajput", {
 });
  
 
-addressBookApp.deleteContact("Ankit-Work", "Abhishek", "Jat");
+addressBookApp.deleteContact("Ankit-Personal", "Ankit", "Rajput"); 
+addressBookApp.countContacts("Ankit-Work");
