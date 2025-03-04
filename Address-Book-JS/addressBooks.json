@@ -1,35 +1,25 @@
 {
-  "Ankit-Personal": [
+  "Ankit-Personal": [],
+  "Ankit-Work": [
     {
-      "firstName": "Ankit",
-      "lastName": "Rajput",
-      "address": "121 Sec-A Bhopal",
-      "city": "Bhopal",
-      "state": "Madhyapradesh",
-      "zip": "271203",
-      "phone": "9234567890",
-      "email": "ankit.rajput@example.com"
+      "firstName": "Abhishek",
+      "lastName": "Jat",
+      "address": "121 Sec-B Bhopal",
+      "city": "Bhopal-DDX",
+      "state": "Bihar",
+      "zip": "78001",
+      "phone": "9123456789",
+      "email": "abhishek.jat@example.com"
     },
     {
-      "firstName": "Ankit",
-      "lastName": "Rajput",
-      "address": "121 Sec-A Bhopal",
-      "city": "Bhopal",
-      "state": "Madhyapradesh",
-      "zip": "271203",
-      "phone": "9770543210",
-      "email": "ankit.rajput@example.com"
-    },
-    {
-      "firstName": "Ankit",
-      "lastName": "Rajput",
-      "address": "121 Sec-A Bhopal",
-      "city": "Bhopal",
-      "state": "Madhyapradesh",
-      "zip": "271203",
-      "phone": "9770543210",
-      "email": "ankit.rajput@example.com"
+      "firstName": "Abhishek",
+      "lastName": "Jat",
+      "address": "121 Sec-B Bhopal",
+      "city": "Bhopal-DDX",
+      "state": "Bihar",
+      "zip": "78001",
+      "phone": "9123456789",
+      "email": "abhishek.jat@example.com"
     }
-  ],
-  "Ankit-Work": []
+  ]
 }
