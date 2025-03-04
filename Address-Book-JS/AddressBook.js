@@ -105,6 +105,7 @@ class AddressBook {
       return;
     }
 
+    // Try to add the contact with validation
     try {
       // Validation of contact details
       this.validateContact(
@@ -301,7 +302,7 @@ addressBookApp.addContact(
 addressBookApp.viewContacts("Ankit-Work");
 
 addressBookApp.editContact("Ankit-Personal", "Ankit", "Rajput", {
-  phone: "9234567890",
+  phone: "8234567890",
 });
 
 addressBookApp.deleteContact("Ankit-Personal", "Ankit", "Rajput");
