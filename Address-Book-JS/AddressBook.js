@@ -90,19 +90,20 @@ class AddressBook {
   ) {
     if (!this.addressBooks[bookName]) {
       console.log(`Address Book '${bookName}' does not exist.`);
-       this.addressBooks[bookName] = [];
-    }  
+      this.addressBooks[bookName] = [];
+    }
 
-      // Check for duplicate using `some`
-      const isDuplicate = this.addressBooks[bookName].some(
-        (c) => c.firstName === firstName && c.lastName === lastName
+    // Check for duplicate using `some`
+    const isDuplicate = this.addressBooks[bookName].some(
+      (c) => c.firstName === firstName && c.lastName === lastName
+    );
+
+    if (isDuplicate) {
+      console.log(
+        `Duplicate entry! Contact '${contact.name}' already exists in '${bookName}'.`
       );
-      
-
-      if (isDuplicate) {
-          console.log(`Duplicate entry! Contact '${contact.name}' already exists in '${bookName}'.`);
-          return;
-      }
+      return;
+    }
 
     try {
       // Validation of contact details
@@ -231,19 +232,42 @@ class AddressBook {
       this.saveAddressBooks();
       console.log(`Contact '${firstName} ${lastName}' deleted successfully!`);
     }
-  } 
+  }
   // countContacts method to count the contacts in the address book
   countContacts(bookName) {
     if (!this.addressBooks[bookName]) {
-        console.log(`Address Book '${bookName}' does not exist.`);
-        return 0;
+      console.log(`Address Book '${bookName}' does not exist.`);
+      return 0;
     }
 
     // Use reduce function to count the contacts
-    const contactCount = this.addressBooks[bookName].reduce((count) => count + 1, 0);
+    const contactCount = this.addressBooks[bookName].reduce(
+      (count) => count + 1,
+      0
+    );
     console.log(`Total contacts in '${bookName}': ${contactCount}`);
     return contactCount;
-}
+  }
+
+  // searchByCityOrState method to search the contacts by city or state
+  searchByCityOrState(cityOrState) {
+    let results = [];
+
+    Object.keys(this.addressBooks).forEach((bookName) => {
+      const contacts = this.addressBooks[bookName].filter(
+        (contact) =>
+          contact.city.toLowerCase() === cityOrState.toLowerCase() ||
+          contact.state.toLowerCase() === cityOrState.toLowerCase()
+      );
+      results = results.concat(contacts);
+    });
+
+    if (results.length === 0) {
+      console.log(`No contacts found in '${cityOrState}'.`);
+    } else {
+      console.log(`Contacts in '${cityOrState}':`, results);
+    }
+  }
 }
 
 // Example Usage to create an address book and add a contact
@@ -279,7 +303,8 @@ addressBookApp.viewContacts("Ankit-Work");
 addressBookApp.editContact("Ankit-Personal", "Ankit", "Rajput", {
   phone: "9234567890",
 });
- 
 
-addressBookApp.deleteContact("Ankit-Personal", "Ankit", "Rajput"); 
-addressBookApp.countContacts("Ankit-Work");
+addressBookApp.deleteContact("Ankit-Personal", "Ankit", "Rajput");
+addressBookApp.countContacts("Ankit-Work"); 
+
+addressBookApp.searchByCityOrState("Bhopal");
