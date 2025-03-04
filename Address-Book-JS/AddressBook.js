@@ -90,8 +90,20 @@ class AddressBook {
   ) {
     if (!this.addressBooks[bookName]) {
       console.log(`Address Book '${bookName}' does not exist.`);
-      return;
-    }
+       this.addressBooks[bookName] = [];
+    }  
+
+      // Check for duplicate using `some`
+      const isDuplicate = this.addressBooks[bookName].some(
+        (c) => c.firstName === firstName && c.lastName === lastName
+      );
+      
+
+      if (isDuplicate) {
+          console.log(`Duplicate entry! Contact '${contact.name}' already exists in '${bookName}'.`);
+          return;
+      }
+
     try {
       // Validation of contact details
       this.validateContact(
